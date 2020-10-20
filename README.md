@@ -15,7 +15,8 @@ Produces helper maps to evaluate a choice of postmortem b-value
     - MD<sup>-1</sup>
     - Fractional Anisotropy: FA
     - Inverse Largest eigenvalue: &lambda;<sub>max</sub><sup>-1</sup>
-    - Maximum DTI signal contrast on last shell: $$\Delta S = \exp(-b_{\max}\lambda_{\min}) - \exp(-b_{\max}\lambda_{\max})$$
+    - Maximum DTI signal contrast on last shell: 
+    $$\Delta S = \exp(-b_{\max}\lambda_{\min}) - \exp(-b_{\max}\lambda_{\max})$$
 
 
 **bvalue_estimator.py**  
@@ -32,7 +33,8 @@ Produces helper histograms to choose of postmortem b-value
 Produces helper histograms to choose of postmortem b-value  
 
 - fit DTI WLS using all bvecs/bvals up to some b<sub>max</sub> and *iteratively increases b<sub>max</sub>*
-- returns various metrics based on the distributions of Maximum DTI signal contrast on last shell $$\Delta S = \exp(-b_{\max}\lambda_{\min}) - \exp(-b_{\max}\lambda_{\max})$$  
+- returns various metrics based on the distributions of Maximum DTI signal contrast on last shell 
+$$\Delta S = \exp(-b_{\max}\lambda_{\min}) - \exp(-b_{\max}\lambda_{\max})$$  
     -  Histograms of \Delta S for each b<sub>max</sub>  
     -  Graph of inverse 25%- 50%- and 75%- quantile of histogram as a function of b<sub>max</sub>  
 
@@ -40,7 +42,8 @@ Produces helper histograms to choose of postmortem b-value
 Produces helper histograms to choose of postmortem b-value  
 
 - fit DTI WLS using *each b-value shell*
-- returns various metrics based on the distributions of Maximum DTI signal contrast on shell $$\Delta S = \exp(-b\lambda_{\min}) - \exp(-b\lambda_{\max})$$  
+- returns various metrics based on the distributions of Maximum DTI signal contrast on shell 
+$$\Delta S = \exp(-b\lambda_{\min}) - \exp(-b\lambda_{\max})$$  
     -  Histograms of \Delta S for each b-value  
     -  Graph of inverse 25%- 50%- and 75%- quantile of histogram as a function of b-value  
 
