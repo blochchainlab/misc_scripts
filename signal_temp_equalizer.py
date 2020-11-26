@@ -29,6 +29,7 @@ def _build_args_parser():
     p.add_argument('bval', metavar='bval', help='Path of the bval file.')
     p.add_argument('bvec', metavar='bvec', help='Path of the bvec file.')
     p.add_argument('output', metavar='output', help='Path of the output nifti.')
+    p.add_argument('outputks', metavar='output', help='Path of the diffusivity multiplier map.')
     
     # requires either a file with volume mask or a number of last volume
     group = p.add_mutually_exclusive_group(required=True)
@@ -155,6 +156,9 @@ def main():
 
     ks[np.isnan(ks)] = 1
     ks[np.isinf(ks)] = 1
+
+    # save the diffusivity multiplier map
+    nib.nifti1.Nifti1Image(ks, img.affine).to_filename(args.outputks)
 
 
     mean_directional_k = np.median(ks[mask], axis=(0,))
