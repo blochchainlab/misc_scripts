@@ -123,7 +123,7 @@ def main():
     print('FITTING DTI')
     tenmodel_low = dti.TensorModel(gtab_low, fit_method='WLS', return_S0_hat=True)
 
-    # Dipy as hard min signal cutoff of 1e-4, so we amplify
+    # Dipy has hard min signal cutoff of 1e-4, so we amplify
     # set the non-zero minimum to the threshold
     data_low_masked = data_low[mask] 
     multiplier = 1e-4 /  data_low_masked[np.nonzero(data_low_masked)].min()
