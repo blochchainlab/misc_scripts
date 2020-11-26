@@ -125,8 +125,11 @@ def main():
 
     # Dipy has hard min signal cutoff of 1e-4, so we amplify
     # set the non-zero minimum to the threshold
-    data_low_masked = data_low[mask] 
-    multiplier = 1e-4 /  data_low_masked[np.nonzero(data_low_masked)].min()
+    data_low_masked = data_low[mask]
+    # this is gettho more and more garbage, to accomodate debias negative data
+    # we look at the min above zero
+    # in pratice this is terrible and we should just scale the data before
+    multiplier = 1e-4 /  data_low_masked[(data_low_masked>0)].min()
     tenfit_low = tenmodel_low.fit(multiplier*data_low, mask=mask)
 
 
