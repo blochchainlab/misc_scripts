@@ -38,7 +38,7 @@ def main():
         mask = nib.load(args.mask).get_data().astype(np.bool)
         masksum = mask.sum()
 
-	bvals = np.genfromtxt(args.bvals)
+    bvals = np.genfromtxt(args.bvals)
 
     b0_th = 75.
     b0_index = np.where(bval < b0_th)[0]
