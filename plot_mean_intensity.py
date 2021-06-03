@@ -41,7 +41,7 @@ def main():
     bvals = np.genfromtxt(args.bvals)
 
     b0_th = 75.
-    b0_index = np.where(bval < b0_th)[0]
+    b0_index = np.where(bvals < b0_th)[0]
 
 
 
