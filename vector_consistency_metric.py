@@ -69,7 +69,7 @@ def main():
 
     # # should make sure no voxel IN mask has 0 neighboor
     # neighboor_count[mask].min()
-    for xyz in np.ndindex(neighboor_count):
+    for xyz in np.ndindex(neighboor_count.shape):
         if mask[xyz]:
             if neighboor_count[xyz] < 1:
                 mask[xyz] = False
