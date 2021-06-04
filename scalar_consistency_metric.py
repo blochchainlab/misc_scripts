@@ -36,6 +36,9 @@ def main():
     output_root = args.output_root
 
 
+    # set to 0 stuff outside the mask so i can do the dum sum of all
+    data[np.logical_not(mask)] = 0
+
 
     # count neighboor
     neighboor_count = np.zeros(data.shape[:3])
