@@ -118,7 +118,7 @@ def main():
                     for i1 in range(Mmin):
                         precomp_tmp = []
                         for i2 in range(Mmax):
-                            precomp_tmp.append(eucl2deg(A[i1]-B[i2]))
+                            precomp_tmp.append(eucl2deg(np.linalg.norm(A[i1]-B[i2])))
                         precomp.append(precomp_tmp)
 
                     orderings = [el for subg in combinations(range(Mmax), Mmin) for el in permutations(subg)] 
