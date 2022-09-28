@@ -156,6 +156,7 @@ def main():
         print('{} voxels above free water diffusivity ({:.2f} % of mask)'.format(idx1.sum(), 100*idx1.sum()/float(masksum)))
         # remove low diffusivity probable outlier
         th_diff = 0.05
+        # th_diff = 0.2
         idx2 = (tmp >= 1/(th_diff*1.0e-3)) # 1% of mean diffusivity of in-vivo WM at in-vivo brain temperature
         print('{} voxels below {} of in-vivo WM diffusivity ({:.2f} % of mask)'.format(idx2.sum(),th_diff, 100*idx2.sum()/float(masksum)))
         tmp = tmp[np.logical_not(np.logical_or(idx1, idx2))]
